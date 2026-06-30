@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --primary: 256 89% 60%;
+  --secondary: 220 83% 60%;
+  --accent: 270 91% 65%;
+  --muted: 210 40% 96%;
+  --border: 214 32% 91%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2563eb 100%);
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg;
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .animate-blob-1 {
+    animation: blob 7s infinite;
+  }
+  .animate-blob-2 {
+    animation: blob 9s infinite;
+    animation-delay: 2s;
+  }
+  .animate-blob-3 {
+    animation: blob 11s infinite;
+    animation-delay: 4s;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(210 40% 96%);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #764ba2, #667eea);
+}
+
+/* Selection */
+::selection {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+/* Blog prose */
+.prose-blog {
+  @apply max-w-none;
+}
+.prose-blog h2 {
+  @apply text-2xl font-bold mt-10 mb-4 text-foreground;
+}
+.prose-blog h3 {
+  @apply text-xl font-semibold mt-8 mb-3 text-foreground;
+}
+.prose-blog p {
+  @apply text-base leading-relaxed mb-6 text-muted-foreground;
+}
+.prose-blog ul {
+  @apply list-disc pl-6 mb-6 space-y-2 text-muted-foreground;
+}
+.prose-blog ol {
+  @apply list-decimal pl-6 mb-6 space-y-2 text-muted-foreground;
+}
+.prose-blog code {
+  @apply bg-muted px-1.5 py-0.5 rounded text-sm text-primary font-mono;
+}
+.prose-blog pre {
+  @apply bg-foreground/5 p-4 rounded-lg overflow-x-auto mb-6 border border-border;
+}
+.prose-blog pre code {
+  @apply bg-transparent p-0;
+}
+.prose-blog blockquote {
+  @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-6;
+}
+.prose-blog a {
+  @apply text-primary underline hover:text-accent transition-colors;
+}
+.prose-blog img {
+  @apply rounded-lg mx-auto;
+}

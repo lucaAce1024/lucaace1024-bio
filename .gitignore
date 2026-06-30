@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/*
+.next/*
+
+# Environment variables
+.env
+.env.local
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# TypeScript
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Next.js
+next-env.d.ts
+
+# Backup files
+*.backup
+*/*.backup
+**/*.backup
+
+# Test files
+__tests__/
+.playwright-mcp/*
+.vscode/*
+test-results/
